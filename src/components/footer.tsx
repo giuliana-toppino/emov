@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 border-t border-white/10 mt-0 py-14 px-6 md:px-8">
+    <footer className="relative z-10 border-t border-white/10 pt-8 pb-14 px-6 md:px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-white/60 text-sm">© 2025 EMOV. Todos os direitos reservados.</div>
 
