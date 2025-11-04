@@ -16,7 +16,7 @@ export default function Footer() {
             Instagram
           </a>
           <span className="text-white/20">|</span>
-          <div className="text-white/60 text-sm">📍 Rua Principal, 123 - Cidade</div>
+          <div className="text-white/60 text-sm"> Rua Principal, 123 - Cidade</div>
         </div>
       </div>
     </footer>

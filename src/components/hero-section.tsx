@@ -6,7 +6,7 @@ export default function HeroSection() {
   const whatsappLink =
     "https://wa.me/5549999620725?text=Vim%20do%20site%20da%20EMOV%20e%20quero%20ver%20as%20pe%C3%A7as%20dispon%C3%ADveis."
   return (
-    <main className="flex-1 flex items-center px-8 py-20 md:py-0 md:px-12 lg:px-16">
+    <main className="flex-1 flex items-center px-8 py-0 md:py-0 md:px-12 lg:px-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

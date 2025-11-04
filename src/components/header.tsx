@@ -14,7 +14,7 @@ export default function Header() {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white/60 hover:text-white text-xs transition-all duration-200"
+          className="text-white/60 hover:text-white text-[13px] md:text-sm transition-all duration-200"
         >
           Instagram
         </a>
