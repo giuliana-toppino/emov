@@ -31,7 +31,7 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
   }, [])
 
   return (
-    <div ref={containerRef} className="min-h-screen min-h-[100dvh] bg-black relative overflow-hidden fixed inset-0 w-full h-full">
+    <div ref={containerRef} className="min-h-screen min-h-[100dvh] bg-[#0A2E35] relative overflow-hidden fixed inset-0 w-full h-full">
       {/* SVG Filters */}
       <svg className="absolute inset-0 w-0 h-0">
         <defs>
@@ -62,13 +62,13 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
 
       <MeshGradient
         className="absolute inset-0 w-full h-full"
-        colors={["#000000", "#DC2626", "#1C1C1C", "#0F0F0F", "#7F1D1D"]}
+        colors={["#0A2E35", "#139FB2", "#1D8F9B", "#0F6D79", "#5FC8D7"]}
         speed={0.3}
       />
       <MeshGradient
-        className="absolute inset-0 w-full h-full opacity-40"
-        colors={["#000000", "#2A2A2A", "#DC2626", "#0A0A0A"]}
-        speed={0.2}
+        className="absolute inset-0 w-full h-full opacity-45"
+        colors={["#0A2E35", "#0E4F58", "#139FB2", "#083C46"]}
+        speed={0.25}
       />
 
       {children}

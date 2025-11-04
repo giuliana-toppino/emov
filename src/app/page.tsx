@@ -10,7 +10,7 @@ export default function EMOVLanding() {
   return (
     <>
       <ShaderBackground>
-        <div className="min-h-screen min-h-[100dvh] flex flex-col relative z-10">
+        <div className="h-screen h-[100dvh] flex flex-col justify-between relative z-10 overflow-hidden">
           <Header />
           <HeroSection />
           <Footer />
