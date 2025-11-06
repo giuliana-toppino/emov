@@ -63,18 +63,18 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
       {/* Subtle mesh background base */}
       <MeshGradient
         className="absolute inset-0 w-full h-full"
-        colors={["#0A2E35", "#139FB2", "#1D8F9B", "#0F6D79", "#5FC8D7"]}
+        colors={[ "#139FB2", "#1D8F9B", "#5FC8D7"]}
         speed={0}
       />
       <MeshGradient
         className="absolute inset-0 w-full h-full opacity-12"
-        colors={["#0A2E35", "#0E4F58", "#139FB2", "#083C46"]}
+        colors={[ "#139FB2" ]}
         speed={0}
       />
 
-      {/* Hero background image with soft bottom fade */}
+      {/* Hero background image (somente desktop) com fade inferior suave */}
       <div
-        className="absolute inset-0 bg-[url('/hero.png')] bg-no-repeat bg-right md:bg-center bg-cover md:bg-cover opacity-75 md:opacity-60"
+        className="absolute inset-0 bg-no-repeat bg-center opacity-75 hidden md:block bg-none md:bg-[url('/hero-ipa.png')] lg:bg-[url('/hero-ipa.png')] md:bg-[length:100%_auto] lg:bg-[length:100%_auto] xl:bg-[url('/hero.png')] xl:bg-cover xl:opacity-70"
         aria-hidden="true"
         style={{
           WebkitMaskImage:

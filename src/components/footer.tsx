@@ -17,15 +17,13 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/emov_oficial"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white/60 hover:text-white transition-colors duration-200"
           >
             Instagram
           </a>
-          <span className="text-white/20">|</span>
-          <div className="text-white/60 text-sm"> Rua Principal, 123 - Cidade</div>
         </div>
       </div>
     </footer>

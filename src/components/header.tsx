@@ -8,17 +8,7 @@ export default function Header() {
         <img src="/logoemov.png" alt="EMOV" className="h-12 md:h-16 lg:h-20 w-auto select-none" />
       </div>
 
-      {/* Navigation */}
-      <nav className="flex items-center gap-2">
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white/60 hover:text-white text-[13px] md:text-sm transition-all duration-200"
-        >
-          Instagram
-        </a>
-      </nav>
+
     </header>
   )
 }
