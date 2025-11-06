@@ -60,15 +60,54 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
         </defs>
       </svg>
 
+      {/* Subtle mesh background base */}
       <MeshGradient
         className="absolute inset-0 w-full h-full"
         colors={["#0A2E35", "#139FB2", "#1D8F9B", "#0F6D79", "#5FC8D7"]}
         speed={0}
       />
       <MeshGradient
-        className="absolute inset-0 w-full h-full opacity-45"
+        className="absolute inset-0 w-full h-full opacity-12"
         colors={["#0A2E35", "#0E4F58", "#139FB2", "#083C46"]}
         speed={0}
+      />
+
+      {/* Hero background image with soft bottom fade */}
+      <div
+        className="absolute inset-0 bg-[url('/hero.png')] bg-no-repeat bg-right md:bg-center bg-cover md:bg-cover opacity-75 md:opacity-60"
+        aria-hidden="true"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
+        }}
+      />
+
+      {/* Directional teal overlay for readability (much lighter) */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(10,46,53,0.40) 0%, rgba(10,46,53,0.24) 45%, rgba(10,46,53,0.08) 100%)",
+        }}
+      />
+
+      {/* Soft vignette to blend edges (lighter) */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(120% 100% at 18% 50%, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.06) 42%, rgba(0,0,0,0) 70%)",
+        }}
+      />
+
+      {/* Bottom blend into base color to avoid hard cut at footer */}
+      <div
+        className="absolute bottom-0 inset-x-0 h-24 md:h-36 bg-gradient-to-b from-transparent via-[#0A2E35]/20 to-[#0A2E35]"
+        aria-hidden="true"
       />
 
       {children}
