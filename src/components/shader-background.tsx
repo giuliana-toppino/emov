@@ -31,7 +31,10 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
   }, [])
 
   return (
-    <div ref={containerRef} className="min-h-screen min-h-[100dvh] bg-[#0A2E35] relative overflow-hidden fixed inset-0 w-full h-full">
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-[#000000] relative overflow-hidden flex flex-col"
+    >
       {/* SVG Filters */}
       <svg className="absolute inset-0 w-0 h-0">
         <defs>
@@ -47,12 +50,16 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
               result="tint"
             />
           </filter>
+
           <filter id="gooey-filter" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
             <feColorMatrix
               in="blur"
               mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              values="1 0 0 0 0  
+                      0 1 0 0 0  
+                      0 0 1 0 0  
+                      0 0 0 19 -9"
               result="gooey"
             />
             <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
@@ -63,54 +70,43 @@ export default function ShaderBackground({ children }: ShaderBackgroundProps) {
       {/* Subtle mesh background base */}
       <MeshGradient
         className="absolute inset-0 w-full h-full"
-        colors={[ "#139FB2", "#1D8F9B", "#5FC8D7"]}
+        colors={["#2E2E2E", "#000000"]}
         speed={0}
       />
       <MeshGradient
-        className="absolute inset-0 w-full h-full opacity-12"
-        colors={[ "#139FB2" ]}
+        className="absolute inset-0 w-full h-full opacity-[0.03]"
+        colors={["#FFFFFF"]}
         speed={0}
       />
-
-      {/* Hero background image (somente desktop) com fade inferior suave */}
-      <div
-        className="absolute inset-0 bg-no-repeat bg-center opacity-75 hidden md:block bg-none md:bg-[url('/hero-ipa.png')] lg:bg-[url('/hero-ipa.png')] md:bg-[length:100%_auto] lg:bg-[length:100%_auto] xl:bg-[url('/hero.png')] xl:bg-cover xl:opacity-70"
-        aria-hidden="true"
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
-          maskImage:
-            "linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
-        }}
-      />
-
-      {/* Directional teal overlay for readability (much lighter) */}
+      {/* Directional overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background:
-            "linear-gradient(90deg, rgba(10,46,53,0.40) 0%, rgba(10,46,53,0.24) 45%, rgba(10,46,53,0.08) 100%)",
+          background: "linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%)",
         }}
       />
 
-      {/* Soft vignette to blend edges (lighter) */}
+      {/* Soft vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background:
-            "radial-gradient(120% 100% at 18% 50%, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.06) 42%, rgba(0,0,0,0) 70%)",
+          background: "radial-gradient(circle at center, transparent 0%, #000000 100%)",
         }}
       />
 
-      {/* Bottom blend into base color to avoid hard cut at footer */}
+      {/* Bottom blend */}
       <div
-        className="absolute bottom-0 inset-x-0 h-24 md:h-36 bg-gradient-to-b from-transparent via-[#0A2E35]/20 to-[#0A2E35]"
+        className="absolute bottom-0 inset-x-0 h-24 md:h-36 
+        bg-gradient-to-b from-transparent to-[#000000]"
         aria-hidden="true"
       />
 
-      {children}
+      {/* ⭐ Agora SIM o conteúdo aparece por cima de tudo */}
+      <div className="relative z-20 flex flex-col w-full">
+        {children}
+      </div>
     </div>
   )
 }

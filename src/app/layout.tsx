@@ -1,22 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Figtree } from "next/font/google"
+import { Inter, Montserrat } from "next/font/google"
 import { GeistMono } from "geist/font/mono"
-import { Instrument_Serif } from "next/font/google"
+import Footer from "../components/footer"
 import "./globals.css"
 
-const figtree = Figtree({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-figtree",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
 })
 
-const instrumentSerif = Instrument_Serif({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  weight: ["700", "800"], // Bold e ExtraBold
+  variable: "--font-montserrat",
   display: "swap",
 })
 
@@ -35,22 +34,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-[#000000]">
       <head>
         <style>{`
-html {
-  font-family: ${figtree.style.fontFamily};
-  --font-sans: ${figtree.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-instrument-serif: ${instrumentSerif.variable};
-}
+          html {
+            font-family: ${inter.style.fontFamily};
+            --font-sans: ${inter.variable};
+            --font-mono: ${GeistMono.variable};
+            --font-title: ${montserrat.variable};
+          }
         `}</style>
       </head>
-      <body className={`${figtree.variable} ${GeistMono.variable} ${instrumentSerif.variable}`}>{children}</body>
+
+      <body
+        className={`${inter.variable} ${montserrat.variable} ${GeistMono.variable} flex flex-col`}
+      >
+        <main className="flex-1">
+          {children}
+        </main>
+
+        <Footer />
+      </body>
     </html>
   )
 }
